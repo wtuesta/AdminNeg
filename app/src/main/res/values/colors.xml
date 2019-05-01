@@ -3,6 +3,7 @@
     <color name="colorPrimary">#283593</color>
     <color name="colorPrimaryDark">#001064</color>
     <color name="primary_light">#5f5fc4</color>
+    <color name="colorPrimarytn">#3a469e</color>
 
     <color name="colorAccent">#ff5722</color>
     <color name="colorSeconaryDark">#c41c00</color>
@@ -19,4 +20,6 @@
     <color name="divider">#BDBDBD</color>
 
     <color name="black_overlay">#66000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
 </resources>

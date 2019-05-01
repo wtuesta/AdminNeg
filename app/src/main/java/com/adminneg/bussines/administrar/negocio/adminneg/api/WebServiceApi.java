@@ -1,0 +1,39 @@
+package com.adminneg.bussines.administrar.negocio.adminneg.api;
+
+import com.adminneg.bussines.administrar.negocio.adminneg.model.Adm_01usuario;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.DELETE;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
+
+/**
+ * Created by albertopalomarrobledo on 1/12/18.
+ */
+
+public interface WebServiceApi {
+
+//    USUARIOS
+
+    @POST("/api/sign_up")
+    Call<Void> registrarProfesor(@Body Adm_01usuario usuario);
+
+    @POST("/api/login")
+    Call<List<Adm_01usuario>> login(@Body Adm_01usuario usuario);
+
+    @DELETE("api/delete/{id}")
+    Call<Void> deleteById(@Path("id") Long id);
+
+    @PUT("api/update_sql")
+    Call<Adm_01usuario> update(@Body Adm_01usuario profesor);
+
+    @GET("api/profesores")
+    Call<List<Adm_01usuario>> getUsuarios();
+
+
+}
