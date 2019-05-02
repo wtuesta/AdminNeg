@@ -1,4 +1,4 @@
-package com.adminneg.bussines.administrar.negocio.adminneg;
+package com.adminneg.bussines.administrar.negocio.adminneg.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.adminneg.bussines.administrar.negocio.adminneg.R;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.

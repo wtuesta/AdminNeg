@@ -68,9 +68,9 @@ public class SharedPrefManager {
 
         editor.putString(SHARED_PREFERENCES_FLAGACTIVO, usuario.getFlagActivo());
         editor.putLong(SHARED_PREFERENCES_CREACIONFECHA, usuario.getCreacionFecha());
-        editor.putLong(SHARED_PREFERENCES_CREACIONUSUARIO, usuario.getCreacionUsuario());
+        editor.putString(SHARED_PREFERENCES_CREACIONUSUARIO, usuario.getCreacionUsuario());
         editor.putLong(SHARED_PREFERENCES_MODIFICACIONFECHA, usuario.getModificacionFecha());
-        editor.putLong(SHARED_PREFERENCES_MODIFICACIONUSUARIO, usuario.getModificacionUsuario());
+        editor.putString(SHARED_PREFERENCES_MODIFICACIONUSUARIO, usuario.getModificacionUsuario());
         editor.apply();
     }
 
@@ -97,9 +97,9 @@ public class SharedPrefManager {
                 sharedPreferences.getString(SHARED_PREFERENCES_FOTO, null),
                 sharedPreferences.getString(SHARED_PREFERENCES_FLAGACTIVO, null),
                 sharedPreferences.getLong(SHARED_PREFERENCES_CREACIONFECHA, -1),
-                sharedPreferences.getLong(SHARED_PREFERENCES_CREACIONUSUARIO, -1),
+                sharedPreferences.getString(SHARED_PREFERENCES_CREACIONUSUARIO, null),
                 sharedPreferences.getLong(SHARED_PREFERENCES_MODIFICACIONFECHA, -1),
-                sharedPreferences.getLong(SHARED_PREFERENCES_MODIFICACIONUSUARIO, -1)
+                sharedPreferences.getString(SHARED_PREFERENCES_MODIFICACIONUSUARIO, null)
         );
 
         return usuario;

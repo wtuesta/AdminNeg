@@ -16,19 +16,19 @@ public class Adm_01usuario {
     private String foto;
     private String flagActivo;
     private Long creacionFecha;
-    private Long creacionUsuario;
+    private String creacionUsuario;
     private Long modificacionFecha;
-    private Long modificacionUsuario;
+    private String modificacionUsuario;
 
     public Adm_01usuario(){
 
     }
 
-    public Adm_01usuario(Long idUsuario, String nombre, String email,  String tipoUsuario, String pais, String idioma, String rol1, String rol2, String rol3, String rol4, String rol5, String foto, String flagActivo, Long creacionFecha, Long creacionUsuario, Long modificacionFecha, Long modificacionUsuario) {
+    public Adm_01usuario(Long idUsuario, String nombre, String email,  String tipoUsuario, String pais, String idioma, String rol1, String rol2, String rol3, String rol4, String rol5, String foto, String flagActivo, Long creacionFecha, String creacionUsuario, Long modificacionFecha, String modificacionUsuario) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.email = email;
-        //this.password = password;
+     //   this.password = password;
         this.tipoUsuario = tipoUsuario;
         this.pais = pais;
         this.idioma = idioma;
@@ -165,11 +165,11 @@ public class Adm_01usuario {
         this.creacionFecha = creacionFecha;
     }
 
-    public Long getCreacionUsuario() {
+    public String getCreacionUsuario() {
         return creacionUsuario;
     }
 
-    public void setCreacionUsuario(Long creacionUsuario) {
+    public void setCreacionUsuario(String creacionUsuario) {
         this.creacionUsuario = creacionUsuario;
     }
 
@@ -181,11 +181,11 @@ public class Adm_01usuario {
         this.modificacionFecha = modificacionFecha;
     }
 
-    public Long getModificacionUsuario() {
+    public String getModificacionUsuario() {
         return modificacionUsuario;
     }
 
-    public void setModificacionUsuario(Long modificacionUsuario) {
+    public void setModificacionUsuario(String modificacionUsuario) {
         this.modificacionUsuario = modificacionUsuario;
     }
 }

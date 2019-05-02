@@ -23,8 +23,11 @@ public interface WebServiceApi {
     @PUT("restful_negociobd/index.php/usuarios/usuario")
     Call<Void> registrarUsuario(@Body Adm_01usuario usuario);
 
-    @POST("/api/login")
+    @PUT("restful_negociobd/index.php/usuarios/login")
     Call<List<Adm_01usuario>> login(@Body Adm_01usuario usuario);
+
+    @POST("/api/login")
+    Call<List<Adm_01usuario>> login2(@Body Adm_01usuario usuario);
 
     @DELETE("api/delete/{id}")
     Call<Void> deleteById(@Path("id") Long id);
