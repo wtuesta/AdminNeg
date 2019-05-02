@@ -24,12 +24,12 @@
     <string name="name_error_no_update">error_mismo_nombre</string>
     <string name="email_error">error_email</string>
     <string name="email_doesnt_match">error_formato_email</string>
-    <string name="email_error_no_update">error_mismo_email</string>
+    <string name="email_error_no_update">El Correo ya esta siendo usado, no es posible crear usuario.</string>
     <string name="password_error">error_password</string>
     <string name="password_error_less_than">Password debe ser mayor de 4 caracteres</string>
 
     <string name="update_profile">Actualizar Profile</string>
-    <string name="logout">Log Out</string>
+    <string name="logout">Salir</string>
     <string name="delete">Borrar Profesor</string>
     <string name="profile">Profile</string>
 

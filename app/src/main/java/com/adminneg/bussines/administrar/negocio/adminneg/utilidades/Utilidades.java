@@ -10,7 +10,7 @@ import java.util.TimeZone;
 public class Utilidades {
     public static int rotacion=0;
     public static  boolean validaPantalla=true;
-
+    public static  long fechaHoraActual= (long) (new Date().getTime()/1000);
     public static String formatDateTime(Context context, String timeToFormat) {
         String finalDateTime = "";
         SimpleDateFormat iso8601Format = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss");

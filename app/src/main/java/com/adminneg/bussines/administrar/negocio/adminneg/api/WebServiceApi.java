@@ -18,10 +18,10 @@ import retrofit2.http.Path;
 
 public interface WebServiceApi {
 
-//    USUARIOS
+//    USUARIOS //put:adicionar
 
-    @POST("/api/sign_up")
-    Call<Void> registrarProfesor(@Body Adm_01usuario usuario);
+    @PUT("restful_negociobd/index.php/usuarios/usuario")
+    Call<Void> registrarUsuario(@Body Adm_01usuario usuario);
 
     @POST("/api/login")
     Call<List<Adm_01usuario>> login(@Body Adm_01usuario usuario);
