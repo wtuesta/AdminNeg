@@ -1,6 +1,7 @@
 package com.adminneg.bussines.administrar.negocio.adminneg.api;
 
 import com.adminneg.bussines.administrar.negocio.adminneg.model.Adm_01usuario;
+import com.adminneg.bussines.administrar.negocio.adminneg.modelws.WsAdm_01usuario;
 
 import java.util.List;
 
@@ -26,8 +27,11 @@ public interface WebServiceApi {
     @PUT("restful_negociobd/index.php/usuarios/login")
     Call<List<Adm_01usuario>> login(@Body Adm_01usuario usuario);
 
+    @PUT("restful_negociobd/index.php/usuarios/login2")
+    Call<List<WsAdm_01usuario>> login2(@Body Adm_01usuario usuario);
+
     @POST("/api/login")
-    Call<List<Adm_01usuario>> login2(@Body Adm_01usuario usuario);
+    Call<List<Adm_01usuario>> login3(@Body Adm_01usuario usuario);
 
     @DELETE("api/delete/{id}")
     Call<Void> deleteById(@Path("id") Long id);

@@ -1,5 +1,7 @@
 package com.adminneg.bussines.administrar.negocio.adminneg.ui;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,10 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.adminneg.bussines.administrar.negocio.adminneg.R;
+import com.adminneg.bussines.administrar.negocio.adminneg.shared_pref.SharedPrefManager;
+import com.adminneg.bussines.administrar.negocio.adminneg.utilidades.Utilidades;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +54,16 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            guadarMarcaSalir();
             super.onBackPressed();
         }
+    }
+
+    private void guadarMarcaSalir() {
+        SharedPreferences preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferencias.edit();
+        editor.putInt("salir", 1);
+        editor.commit();
     }
 
     @Override
@@ -82,22 +94,30 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_ventas) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_compras) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_producto) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_clientes) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_proveedores) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_ingresos_egresos) {
+        } else if (id == R.id.nav_salir) {
+            guadarMarcaSalir();
+            finish();
         }
-
+        else if (id == R.id.nav_cerrar_sesion) {
+            guadarMarcaSalir();
+            SharedPrefManager.getInstance(getApplicationContext()).logOut();
+            finish();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

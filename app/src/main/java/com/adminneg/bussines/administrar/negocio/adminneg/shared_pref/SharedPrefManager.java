@@ -28,6 +28,8 @@ public class SharedPrefManager {
 
     private static final String SHARED_PREFERENCES_FOTO = "SHARED_PREFERENCES_FOTO";
     private static final String SHARED_PREFERENCES_FLAGACTIVO = "SHARED_PREFERENCES_FLAGACTIVO";
+    private static final String SHARED_PREFERENCES_FLAGCONFIRMADO = "SHARED_PREFERENCES_FLAGCONFIRMADO";
+
     private static final String SHARED_PREFERENCES_CREACIONFECHA = "SHARED_PREFERENCES_CREACIONFECHA";
     private static final String SHARED_PREFERENCES_CREACIONUSUARIO = "SHARED_PREFERENCES_CREACIONUSUARIO";
     private static final String SHARED_PREFERENCES_MODIFICACIONFECHA = "SHARED_PREFERENCES_MODIFICACIONFECHA";
@@ -67,6 +69,7 @@ public class SharedPrefManager {
         editor.putString(SHARED_PREFERENCES_FOTO, usuario.getFoto());
 
         editor.putString(SHARED_PREFERENCES_FLAGACTIVO, usuario.getFlagActivo());
+        editor.putString(SHARED_PREFERENCES_FLAGCONFIRMADO, usuario.getFlagConfirmado());
         editor.putLong(SHARED_PREFERENCES_CREACIONFECHA, usuario.getCreacionFecha());
         editor.putString(SHARED_PREFERENCES_CREACIONUSUARIO, usuario.getCreacionUsuario());
         editor.putLong(SHARED_PREFERENCES_MODIFICACIONFECHA, usuario.getModificacionFecha());
@@ -96,6 +99,7 @@ public class SharedPrefManager {
                 sharedPreferences.getString(SHARED_PREFERENCES_ROL5, null),
                 sharedPreferences.getString(SHARED_PREFERENCES_FOTO, null),
                 sharedPreferences.getString(SHARED_PREFERENCES_FLAGACTIVO, null),
+                sharedPreferences.getString(SHARED_PREFERENCES_FLAGCONFIRMADO, null),
                 sharedPreferences.getLong(SHARED_PREFERENCES_CREACIONFECHA, -1),
                 sharedPreferences.getString(SHARED_PREFERENCES_CREACIONUSUARIO, null),
                 sharedPreferences.getLong(SHARED_PREFERENCES_MODIFICACIONFECHA, -1),

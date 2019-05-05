@@ -15,6 +15,7 @@ public class Adm_01usuario {
     private String rol5;
     private String foto;
     private String flagActivo;
+    private String flagConfirmado;
     private Long creacionFecha;
     private String creacionUsuario;
     private Long modificacionFecha;
@@ -24,11 +25,10 @@ public class Adm_01usuario {
 
     }
 
-    public Adm_01usuario(Long idUsuario, String nombre, String email,  String tipoUsuario, String pais, String idioma, String rol1, String rol2, String rol3, String rol4, String rol5, String foto, String flagActivo, Long creacionFecha, String creacionUsuario, Long modificacionFecha, String modificacionUsuario) {
+    public Adm_01usuario(Long idUsuario, String nombre, String email, String tipoUsuario, String pais, String idioma, String rol1, String rol2, String rol3, String rol4, String rol5, String foto, String flagActivo, String flagConfirmado, Long creacionFecha, String creacionUsuario, Long modificacionFecha, String modificacionUsuario) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.email = email;
-     //   this.password = password;
         this.tipoUsuario = tipoUsuario;
         this.pais = pais;
         this.idioma = idioma;
@@ -39,6 +39,7 @@ public class Adm_01usuario {
         this.rol5 = rol5;
         this.foto = foto;
         this.flagActivo = flagActivo;
+        this.flagConfirmado = flagConfirmado;
         this.creacionFecha = creacionFecha;
         this.creacionUsuario = creacionUsuario;
         this.modificacionFecha = modificacionFecha;
@@ -155,6 +156,14 @@ public class Adm_01usuario {
 
     public void setFlagActivo(String flagActivo) {
         this.flagActivo = flagActivo;
+    }
+
+    public String getFlagConfirmado() {
+        return flagConfirmado;
+    }
+
+    public void setFlagConfirmado(String flagConfirmado) {
+        this.flagConfirmado = flagConfirmado;
     }
 
     public Long getCreacionFecha() {

@@ -1,7 +1,9 @@
 package com.adminneg.bussines.administrar.negocio.adminneg.ui;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -110,15 +112,20 @@ public class SplashActivity extends AppCompatActivity {
         // while interacting with the UI.
        // findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
-
+        SharedPreferences preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferencias.edit();
+        editor.putInt("salir", 0);
+        editor.commit();
 
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this,SignUpActivity.class);
+
+                Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
+
             }
         },2000);
     }

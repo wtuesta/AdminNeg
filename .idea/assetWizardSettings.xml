@@ -76,7 +76,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/av/ic_equalizer_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/file/ic_cloud_upload_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -87,9 +87,9 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ff6d29" />
-                            <entry key="outputName" value="ic_logo" />
+                            <entry key="outputName" value="ic_ico_backup" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="C:\Users\Susana" />
+                            <entry key="sourceFile" value="G:\box.svg" />
                           </map>
                         </option>
                       </PersistentState>

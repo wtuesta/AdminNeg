@@ -5,33 +5,82 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_ventas"
+            android:icon="@drawable/ic_ico_ventas"
+            android:title="@string/ventas" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_compras"
+            android:icon="@drawable/ic_ico_compras"
+            android:title="@string/compras" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_producto"
+            android:icon="@drawable/ic_ico_producto"
+            android:title="@string/producto_servicio" />
+
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_clientes"
+            android:icon="@drawable/ic_ico_cliente"
+            android:title="@string/clientes" />
+
+        <item
+            android:id="@+id/nav_proveedores"
+            android:icon="@drawable/ic_ico_proveedores"
+            android:title="@string/proveedores" />
+
+        <item
+            android:id="@+id/nav_ingresos_egresos"
+            android:icon="@drawable/ic_ico_ingresos_egresos"
+            android:title="@string/ingresos_gastos" />
+
+        <item
+            android:id="@+id/nav_agenda"
+            android:icon="@drawable/ic_ico_agenda"
+            android:title="@string/agenda" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/administracion">
         <menu>
+
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_negocios"
+                android:icon="@drawable/ic_ico_sucursales"
+                android:title="@string/negocios_sucursales" />
+
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_personal"
+                android:icon="@drawable/ic_ico_personal"
+                android:title="@string/administrar_personal" />
+
+            <item
+                android:id="@+id/nav_reportes"
+                android:icon="@drawable/ic_ico_reportes"
+                android:title="@string/reportes" />
+
+            <item
+                android:id="@+id/nav_configuracion"
+                android:icon="@drawable/ic_ico_configuracion"
+                android:title="@string/configuracion" />
+
+            <item
+                android:id="@+id/nav_miperfil"
+                android:icon="@drawable/ic_ico_perfil"
+                android:title="@string/mi_perfil" />
+
+            <item
+                android:id="@+id/nav_backup"
+                android:icon="@drawable/ic_ico_backup"
+                android:title="@string/copia_seguridad" />
+
+            <item
+                android:id="@+id/nav_salir"
+                android:icon="@drawable/ic_ico_salir"
+                android:title="@string/salir" />
+            <item
+                android:id="@+id/nav_cerrar_sesion"
+                android:icon="@drawable/ic_ico_cerrar_sesion"
+                android:title="@string/cerrar_sesion" />
         </menu>
     </item>
 

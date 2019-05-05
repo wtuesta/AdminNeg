@@ -1,6 +1,8 @@
 package com.adminneg.bussines.administrar.negocio.adminneg.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -120,13 +122,15 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.code() == 200){
-                    Log.d("TAG1", "usuario guardado correctamente");
+                    //Log.d("TAG1", "usuario guardado correctamente");
+                    Toast.makeText(getApplicationContext(),R.string.registro_login_exitoso,Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }else if(response.code()==409){
                     Toast.makeText(getApplicationContext(),R.string.email_error_no_update,Toast.LENGTH_SHORT).show();
-                    Log.d("TAG1", "usuario ya existe");
+                   // Log.d("TAG1", "usuario ya existe");
                 }else{
-                    Log.d("TAG1", "error no definido");
+                    //Log.d("TAG1", "error no definido");
+                    Toast.makeText(getApplicationContext(),R.string.email_error_no_definido,Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -140,9 +144,23 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
+        SharedPreferences prefe=getSharedPreferences("datos", Context.MODE_PRIVATE);
+        int salir = prefe.getInt("salir",0);
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             Log.d("TAG1", "Profesor ya esta logeado, enviando a Profile Activity");
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            if (salir==0) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+            else
+            {
+                finish();
+            }
+        }
+        else
+        {
+            if (salir==1) {
+                finish();
+            }
         }
     }
 }

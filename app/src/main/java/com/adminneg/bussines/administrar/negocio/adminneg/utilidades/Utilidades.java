@@ -9,6 +9,7 @@ import java.util.TimeZone;
 
 public class Utilidades {
     public static int rotacion=0;
+    public long salir=0;
     public static  boolean validaPantalla=true;
     public static  long fechaHoraActual= (long) (new Date().getTime()/1000);
     public static String formatDateTime(Context context, String timeToFormat) {
@@ -32,9 +33,4 @@ public class Utilidades {
         }
         return finalDateTime;
     }
-    /*public static Date inttoDate(int value) {
-        //Integer value = 19000101;
-        SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
-        Date date = originalFormat.parse(value.toString());
-    }*/
 }
