@@ -20,7 +20,7 @@ import retrofit2.http.Path;
 public interface WebServiceApi {
 
 //    USUARIOS //put:adicionar
-
+//@Headers("X-API-KEY:123456")
     @PUT("restful_negociobd/index.php/usuarios/usuario")
     Call<Void> registrarUsuario(@Body Adm_01usuario usuario);
 

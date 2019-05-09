@@ -53,7 +53,7 @@ public class SharedPrefManager {
         return instance;
     }
 
-    public void saveProfesor(Adm_01usuario usuario){
+    public void saveUsuario(Adm_01usuario usuario){
         editor.putLong(SHARED_PREFERENCES_ID, usuario.getIdUsuario());
         editor.putString(SHARED_PREFERENCES_NAME, usuario.getNombre());
         editor.putString(SHARED_PREFERENCES_EMAIL, usuario.getEmail());

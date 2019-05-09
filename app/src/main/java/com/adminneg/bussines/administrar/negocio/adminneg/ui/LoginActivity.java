@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     usuario = response.body().get(0).getRegistro().get(0);
                     SharedPrefManager.getInstance(getApplicationContext())
-                            .saveProfesor(usuario);
+                            .saveUsuario(usuario);
 
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();

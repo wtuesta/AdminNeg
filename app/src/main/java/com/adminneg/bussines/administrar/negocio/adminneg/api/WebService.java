@@ -1,6 +1,12 @@
 package com.adminneg.bussines.administrar.negocio.adminneg.api;
 
 
+import java.io.IOException;
+
+import okhttp3.Request;
+import okhttp3.Response;
+
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -17,10 +23,26 @@ public class WebService {
     private Retrofit retrofit;
     private HttpLoggingInterceptor loggingInterceptor;
     private OkHttpClient.Builder httpClientBuilder;
-
+    private static final String AUTH_ADMIN = "123456";
     private WebService(){
         loggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
         httpClientBuilder = new OkHttpClient.Builder().addInterceptor(loggingInterceptor);
+
+        httpClientBuilder.addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+
+                Request original = chain.request();
+                Request.Builder requestBuild = original.newBuilder()
+                        .addHeader("X-API-KEY", AUTH_ADMIN)
+                        .method(original.method(), original.body());
+
+                Request request = requestBuild.build();
+                return chain.proceed(request);
+            }
+        });
+
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(httpClientBuilder.build())

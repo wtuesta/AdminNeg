@@ -117,7 +117,8 @@ public class SignUpActivity extends AppCompatActivity {
         Call<Void> call = WebService
                 .getInstance()
                 .createService(WebServiceApi.class)
-                .registrarUsuario(usuario);
+                .registrarUsuario(usuario)
+                ;
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
