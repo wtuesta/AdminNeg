@@ -35,4 +35,20 @@
         <item name="android:background">@drawable/gradient_bt</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
+    <style name="MiTextoBlanco">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    <style name="MiTextoBlancoPequeño">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorSombra</item>
+    </style>
+
+
 </resources>

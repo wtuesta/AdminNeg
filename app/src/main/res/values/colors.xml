@@ -21,5 +21,6 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorSombra">#909096</color>
     <color name="colorBlack">#000000</color>
 </resources>
