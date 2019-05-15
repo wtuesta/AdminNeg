@@ -18,30 +18,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.adminneg.bussines.administrar.negocio.adminneg.R;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.AgendaFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.ClienteFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.CompraFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.ConfiguracionFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.ContactarFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.CopiaSeguridadFragment;
 import com.adminneg.bussines.administrar.negocio.adminneg.fragments.HomeAdminFragment;
 import com.adminneg.bussines.administrar.negocio.adminneg.fragments.HomeUserFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.IngrGastoFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.NegocioSucursalFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.ProdServFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.ProveedorFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.ReporteFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.TerminosCondFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.TrabajadoresFragment;
-import com.adminneg.bussines.administrar.negocio.adminneg.fragments.VentaFragment;
 import com.adminneg.bussines.administrar.negocio.adminneg.model.Adm_01usuario;
 import com.adminneg.bussines.administrar.negocio.adminneg.shared_pref.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, VentaFragment.OnFragmentInteractionListener, CompraFragment.OnFragmentInteractionListener, ProdServFragment.OnFragmentInteractionListener,
-        ClienteFragment.OnFragmentInteractionListener, ProveedorFragment.OnFragmentInteractionListener, IngrGastoFragment.OnFragmentInteractionListener, AgendaFragment.OnFragmentInteractionListener, NegocioSucursalFragment.OnFragmentInteractionListener,
-        TrabajadoresFragment.OnFragmentInteractionListener, ReporteFragment.OnFragmentInteractionListener, ConfiguracionFragment.OnFragmentInteractionListener, CopiaSeguridadFragment.OnFragmentInteractionListener,
-        ContactarFragment.OnFragmentInteractionListener, TerminosCondFragment.OnFragmentInteractionListener, HomeUserFragment.OnFragmentInteractionListener, HomeAdminFragment.OnFragmentInteractionListener {
+    implements NavigationView.OnNavigationItemSelectedListener, HomeUserFragment.OnFragmentInteractionListener, HomeAdminFragment.OnFragmentInteractionListener {
     private SharedPreferences.Editor editor;
     private Adm_01usuario usuario;
     @Override
@@ -134,48 +117,45 @@ public class MainActivity extends AppCompatActivity
         boolean fragmentSeleccionado=false;
 
         if (id == R.id.nav_ventas) {
-            miFragment = new VentaFragment();
+        //    miFragment = new VentaFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_compras) {
-            miFragment = new CompraFragment();
+        //    miFragment = new CompraFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_producto) {
-            miFragment = new ProdServFragment();
+         //   miFragment = new ProdServFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_clientes) {
-            miFragment = new ClienteFragment();
+         //   miFragment = new ClienteFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_proveedores) {
-            miFragment = new ProveedorFragment();
+         //   miFragment = new ProveedorFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_ingresos_egresos) {
-            miFragment = new IngrGastoFragment();
+          //  miFragment = new IngrGastoFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_agenda) {
-            miFragment = new AgendaFragment();
+          //  miFragment = new AgendaFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_negocios) {
-            miFragment = new NegocioSucursalFragment();
-            fragmentSeleccionado=true;
+
+            //action_buscar
+            Intent i = new Intent(this, SucursalListadoActivity.class );
+            startActivityForResult(i, 1);
         } else if (id == R.id.nav_personal) {
-            miFragment = new TrabajadoresFragment();
+          //  miFragment = new TrabajadoresFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_reportes) {
-            miFragment = new ReporteFragment();
+          //  miFragment = new ReporteFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_configuracion) {
-            miFragment = new ConfiguracionFragment();
+           // miFragment = new ConfiguracionFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_miperfil) {
-            Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
-            //intent.putExtra(Artista.ORDEN, adapter.getItemCount()+1);
-            startActivity(intent);
-            //startActivityForResult(intent, 1);
-
-            /*miFragment = new MiPerfilFragment();
-            fragmentSeleccionado=true;*/
+            /*Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
+            startActivity(intent);*/
         } else if (id == R.id.nav_backup) {
-            miFragment = new CopiaSeguridadFragment();
+            //miFragment = new CopiaSeguridadFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_salir) {
             guadarMarcaSalir();
@@ -186,16 +166,13 @@ public class MainActivity extends AppCompatActivity
             SharedPrefManager.getInstance(getApplicationContext()).logOut();
             finish();
         }
-        if(fragmentSeleccionado){
+        /*if(fragmentSeleccionado){
             getSupportFragmentManager().beginTransaction().replace(R.id.content_main,miFragment).commit();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(GravityCompat.START);*/
         return true;
 
-        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;*/
     }
 
 
