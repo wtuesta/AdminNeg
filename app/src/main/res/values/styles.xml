@@ -35,6 +35,7 @@
         <item name="android:background">@drawable/gradient_bt</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
+
     <style name="MiTextoBlanco">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -42,6 +43,7 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
+
     <style name="MiTextoBlancoPequeño">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -50,5 +52,11 @@
         <item name="android:textColor">@color/colorSombra</item>
     </style>
 
+    <style name="TextAppearance.Design.CollapsingToolbar.Expanded.Shadow">
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowRadius">6</item>
+        <item name="android:shadowColor">@android:color/black</item>
+    </style>
 
 </resources>

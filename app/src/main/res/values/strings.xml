@@ -58,8 +58,6 @@
     <string name="copia_seguridad">Copia de Seguridad</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_mi_perfil">MiPerfilActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -149,5 +147,6 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_sucursal_listado">SucursalListadoActivity</string>
 
 </resources>

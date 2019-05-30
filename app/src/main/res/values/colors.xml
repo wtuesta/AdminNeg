@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#283593</color>
-    <color name="colorPrimaryDark">#001064</color>
+    <color name="colorPrimaryDark">#001055</color>
     <color name="primary_light">#5f5fc4</color>
     <color name="colorPrimarytn">#3a469e</color>
 
@@ -13,6 +13,7 @@
     <color name="colorTerciarioDark">#c43e00</color>
 
     <color name="colorCuaternarioDark">#202026</color>
+    <color name="colorCuaternarioLight">#c7ccf5</color>
 
     <color name="primary_text">#ffffff</color>
     <color name="secondary_text">#ffebee</color>

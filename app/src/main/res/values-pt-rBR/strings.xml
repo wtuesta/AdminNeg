@@ -56,4 +56,5 @@
     <string name="tutorial">Tuturial</string>
     <string name="terminos_condiciones">Terminos y Condiciones</string>
     <string name="copia_seguridad">Copia de Seguridad</string>
+    <string name="title_activity_sucursal_listado">Listado de Negocios</string>
 </resources>
