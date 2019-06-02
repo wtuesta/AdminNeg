@@ -6,21 +6,22 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="backgroundcolor">#fcfcfc</item>
-        <item name="cardbackground">#ffffff</item>
-        <item name="textcolor">#808080</item>
-        <item name="tintcolor">#000000</item>
+        <item name="backgroundcolor">@color/backgroundcolor</item>
+        <item name="cardbackground">@color/cardbackground</item>
+        <item name="textcolor">@color/textcolor</item>
+        <item name="tintcolor">@color/tintcolor</item>
         <item name="buttoncolor">@color/colorPrimary</item>
     </style>
+
     <!-- Night Mode theme. -->
     <style name="darkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#212121</item>
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="backgroundcolor">#303030</item>
-        <item name="cardbackground">#424242</item>
-        <item name="textcolor">#ffffff</item>
-        <item name="tintcolor">#ffffff</item>
+        <item name="backgroundcolor">@color/backgroundcolor_o</item>
+        <item name="cardbackground">@color/cardbackground_o</item>
+        <item name="textcolor">@color/textcolor_o</item>
+        <item name="tintcolor">@color/tintcolor_o</item>
         <item name="buttoncolor">@color/colorPrimary</item>
     </style>
 
@@ -31,7 +32,6 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="FullscreenTheme" parent="AppTheme">
