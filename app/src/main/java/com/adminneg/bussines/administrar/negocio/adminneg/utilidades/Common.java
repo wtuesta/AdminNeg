@@ -43,11 +43,7 @@ public class Common {
 
         //Pattern emailPattern = Pattern.compile("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        return !Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     public static void showToast(Context context, String msg) {
@@ -142,7 +138,7 @@ public class Common {
         }
     }
 
-    public static boolean isInternetAvailable(Context context) {
+   /* public static boolean isInternetAvailable(Context context) {
 
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
@@ -151,7 +147,7 @@ public class Common {
             return true;
 
         return false;
-    }
+    }*/
 
 
     public static long getDateTimeStamp(String format, String date) {
@@ -159,7 +155,7 @@ public class Common {
         DateFormat formatter = new SimpleDateFormat(format);
         Date mDate = null;
         try {
-            mDate = (Date) formatter.parse(date);
+            mDate = formatter.parse(date);
             timeStamp = mDate.getTime();
         } catch (ParseException e) {
             timeStamp = 0;
@@ -181,11 +177,7 @@ public class Common {
         int autoTime = Settings.Global.getInt(context.getContentResolver(), Settings.Global.AUTO_TIME, 0);
         int autoTimeZone = Settings.Global.getInt(context.getContentResolver(), Settings.Global.AUTO_TIME_ZONE, 0);
 
-        if (autoTime == 0 && autoTimeZone == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return autoTime == 0 && autoTimeZone == 0;
     }
 
     public static String getDateFromTimeStamp(long timeStamp, String dateFormat) {
@@ -253,7 +245,7 @@ public class Common {
         float dp = px / ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
         return dp;
     }
-
+/*
     public static int getDeviceWidth(Activity activity) {
 
         WindowManager wm = activity.getWindowManager();
@@ -266,8 +258,8 @@ public class Common {
             return wm.getDefaultDisplay().getWidth();
         }
     }
-
-    public static int getDeviceHeight(Activity activity) {
+*/
+    /*public static int getDeviceHeight(Activity activity) {
         WindowManager wm = activity.getWindowManager();
         Point point = new Point();
 
@@ -277,7 +269,7 @@ public class Common {
         } else {
             return wm.getDefaultDisplay().getHeight();
         }
-    }
+    }*/
 
     public static boolean isTablet(Context context) {
         boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == 4);

@@ -11,6 +11,8 @@
         <item name="textcolor">@color/textcolor</item>
         <item name="tintcolor">@color/tintcolor</item>
         <item name="buttoncolor">@color/colorPrimary</item>
+        <item name="startcolor">@color/starcolor</item>
+        <item name="endcolor">@color/endcolor</item>
     </style>
 
     <!-- Night Mode theme. -->
@@ -21,8 +23,8 @@
         <item name="backgroundcolor">@color/backgroundcolor_o</item>
         <item name="cardbackground">@color/cardbackground_o</item>
         <item name="textcolor">@color/textcolor_o</item>
-        <item name="tintcolor">@color/tintcolor_o</item>
-        <item name="buttoncolor">@color/colorPrimary</item>
+        <item name="startcolor">@color/starcolor_o</item>
+        <item name="endcolor">@color/endcolor_o</item>
     </style>
 
 
