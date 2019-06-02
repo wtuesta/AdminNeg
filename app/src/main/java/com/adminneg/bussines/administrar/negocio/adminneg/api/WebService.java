@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WebService {
 
-    private static final String BASE_URL = "http://192.168.100.86/";
+    private static final String BASE_URL = "http://192.168.100.3/";
     private static WebService instance;
     private Retrofit retrofit;
     private HttpLoggingInterceptor loggingInterceptor;

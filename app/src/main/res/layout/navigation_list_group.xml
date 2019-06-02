@@ -30,7 +30,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:textColor="@color/gen_black"
+        android:textColor="@color/colorBlack"
          />
 
     <ImageView

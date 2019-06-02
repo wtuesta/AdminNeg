@@ -126,8 +126,9 @@ public class MainActivity extends AppCompatActivity
                             Common.showToast(context, "Proveedores");
                             drawer.closeDrawer(GravityCompat.START);
                         }else if (id == 9) {
-                            //Notifications Menu
-                            Common.showToast(context, "Salir");
+                            //Salir
+                            guadarMarcaSalir();
+                            finish();
                             drawer.closeDrawer(GravityCompat.START);
                         }
                         return false;
@@ -157,7 +158,11 @@ public class MainActivity extends AppCompatActivity
                         }else if (id == 2 && groupPosition==8) {
                             Common.showToast(context, "Rastreo"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
                         }else if (id == 3 && groupPosition==8) {
-                            Common.showToast(context, "Cerrar Sesion"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                            //Cerrar sesion
+                            guadarMarcaSalir();
+                            SharedPrefManager.getInstance(getApplicationContext()).logOut();
+                            finish();
+                            //Common.showToast(context, "Cerrar Sesion"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
                         }
 
                         drawer.closeDrawer(GravityCompat.START);
