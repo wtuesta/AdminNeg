@@ -19,7 +19,23 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        app:headerLayout="@layout/nav_header_main" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp">
+
+            <com.adminneg.bussines.administrar.negocio.adminneg.view.ExpandableNavigationListView
+                android:id="@+id/expandable_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+
+                android:divider="@null"
+                android:groupIndicator="@null"
+                android:scrollbars="vertical" />
+        </ScrollView>
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

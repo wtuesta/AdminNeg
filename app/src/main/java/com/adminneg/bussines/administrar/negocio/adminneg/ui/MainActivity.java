@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,22 +18,155 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
+
 import com.adminneg.bussines.administrar.negocio.adminneg.R;
 import com.adminneg.bussines.administrar.negocio.adminneg.fragments.HomeAdminFragment;
 import com.adminneg.bussines.administrar.negocio.adminneg.fragments.HomeUserFragment;
 import com.adminneg.bussines.administrar.negocio.adminneg.model.Adm_01usuario;
 import com.adminneg.bussines.administrar.negocio.adminneg.shared_pref.SharedPrefManager;
 
+import com.adminneg.bussines.administrar.negocio.adminneg.model.ChildModel;
+import com.adminneg.bussines.administrar.negocio.adminneg.model.HeaderModel;
+
+import com.adminneg.bussines.administrar.negocio.adminneg.utilidades.Common;
+import com.adminneg.bussines.administrar.negocio.adminneg.view.ExpandableNavigationListView;
+
+
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener, HomeUserFragment.OnFragmentInteractionListener, HomeAdminFragment.OnFragmentInteractionListener {
     private SharedPreferences.Editor editor;
     private Adm_01usuario usuario;
+
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
+    private NavigationView navigationView;
+    private ExpandableNavigationListView navigationExpandableListView;
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        context=MainActivity.this;
+        //Generando Menu
+        navigationExpandableListView = (ExpandableNavigationListView) findViewById(R.id.expandable_navigation);
+
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        navigationExpandableListView
+                .init(this)
+                .addHeaderModel(new HeaderModel(getResources().getString(R.string.inicio)))  //0
+                .addHeaderModel(new HeaderModel(getResources().getString(R.string.ventas), R.drawable.cartbackground, false, true, false)) //1
+                .addHeaderModel(new HeaderModel(getResources().getString(R.string.compras))) //2
+                .addHeaderModel(new HeaderModel(getResources().getString(R.string.producto_servicio))) //3
+                .addHeaderModel(new HeaderModel(getResources().getString(R.string.clientes)))  //4
+                .addHeaderModel(new HeaderModel(getResources().getString(R.string.proveedores))) //5
+
+                .addHeaderModel(
+                        new HeaderModel(getResources().getString(R.string.ajustes), R.drawable.abajo, true)
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.ajustes_inventario)))  //6-0
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.ingresos_gastos)))     //6-1
+                )
+
+                .addHeaderModel(
+                        new HeaderModel(getResources().getString(R.string.configuracion), R.drawable.abajo, true)
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.mi_perfil)))           //7-0
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.negocios_sucursales)))  //7-1
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.administrar_personal))) //7-2
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.configuracion_general))) //7-3
+                )
+                .addHeaderModel(
+                        new HeaderModel(getResources().getString(R.string.herramientas), R.drawable.abajo, true)
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.recargar)))            //8-0
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.copia_seguridad)))     //8-1
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.rastreo)))             //8-2
+                                .addChildModel(new ChildModel("    " + getResources().getString(R.string.cerrar_sesion)))       //8-3
+                )
+
+                .addHeaderModel(new HeaderModel(getResources().getString(R.string.salir)))   //9
+                .build()
+                .addOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+                    @Override
+                    public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                        navigationExpandableListView.setSelected(groupPosition);
+
+                        //drawer.closeDrawer(GravityCompat.START);
+                        if (id == 0) {
+                            //Home Menu
+                            Common.showToast(context, "Inicio Select " );
+
+                            drawer.closeDrawer(GravityCompat.START);
+                        } else if (id == 1) {
+                            //Cart Menu
+                            Common.showToast(context, "Ventas Select");
+                            drawer.closeDrawer(GravityCompat.START);
+                        } else if (id == 2) {
+                            //Categories Menu
+                            Common.showToast(context, "Compras  Select");
+                        } else if (id == 3) {
+                            //Orders Menu
+                            Common.showToast(context, "Producto y servicio");
+                            drawer.closeDrawer(GravityCompat.START);
+                        } else if (id == 4) {
+                            //Wishlist Menu
+                            Common.showToast(context, "Clientes Selected");
+                            drawer.closeDrawer(GravityCompat.START);
+                        } else if (id == 5) {
+                            //Notifications Menu
+                            Common.showToast(context, "Proveedores");
+                            drawer.closeDrawer(GravityCompat.START);
+                        }else if (id == 9) {
+                            //Notifications Menu
+                            Common.showToast(context, "Salir");
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                        return false;
+                    }
+                })
+                .addOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+                    @Override
+                    public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                        navigationExpandableListView.setSelected(groupPosition, childPosition);
+
+                        if (id == 0 && groupPosition==6) {
+                            Common.showToast(context, "Ajustes de Inventario" + String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        } else if (id == 1 && groupPosition==6) {
+                            Common.showToast(context, "Ingresos y Gastos"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        } else if (id == 0 && groupPosition==7) {
+                            Common.showToast(context, "Mi Perfil"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        } else if (id == 1 && groupPosition==7) {
+                            Common.showToast(context, "Negocios y Sucursales"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        } else if (id == 2 && groupPosition==7) {
+                            Common.showToast(context, "Personal"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        } else if (id == 3 && groupPosition==7) {
+                            Common.showToast(context, "Configurar App"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        }else if (id == 0 && groupPosition==8) {
+                            Common.showToast(context, "Recargar"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        }else if (id == 1 && groupPosition==8) {
+                            Common.showToast(context, "Copia de Seguridad"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        }else if (id == 2 && groupPosition==8) {
+                            Common.showToast(context, "Rastreo"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        }else if (id == 3 && groupPosition==8) {
+                            Common.showToast(context, "Cerrar Sesion"+ String.valueOf(groupPosition) + " / " + String.valueOf(childPosition));
+                        }
+
+                        drawer.closeDrawer(GravityCompat.START);
+                        return false;
+                    }
+                });
+        navigationExpandableListView.expandGroup(2);
+
+        //Ubicando el fragmento inicial
         usuario= SharedPrefManager.getInstance(getApplicationContext())
                 .getusuario();
         muestraFragmentoInicial();
@@ -50,9 +184,10 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        
+        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        /*NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);*/
     }
 
     private void muestraFragmentoInicial() {

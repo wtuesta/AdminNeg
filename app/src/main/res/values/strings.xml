@@ -33,29 +33,42 @@
     <string name="logout">Exit</string>
     <string name="delete">Delete User</string>
     <string name="profile">Profile</string>
-    <string name="salir">Salir</string>
-    <string name="cerrar_sesion">Cerrar sesion</string>
     <string name="errLogueo">Error de la cuenta o contraseña incorrecta</string>
     <string name="email_error_no_definido">Error no definido</string>
     <string name="registro_login_exitoso">Para completar el registro se envio un link de confirmacion a su correo.</string>
     <string name="email_error_no_confirm">Error,Se envio un link a su correo para activar la cuenta.</string>
-    <string name="producto_servicio">Productos y Servicios</string>
-    <string name="negocios_sucursales">Negocios y Sucursales</string>
+
+    <string name="inicio">Inicio</string>
     <string name="ventas">Ventas</string>
     <string name="compras">Compras</string>
-    <string name="ingresos_gastos">Ingresos y Gastos</string>
-    <string name="administracion">Administración</string>
+    <string name="producto_servicio">Productos y Servicios</string>
     <string name="clientes">Clientes</string>
     <string name="proveedores">Proveedores</string>
+    <string name="ingresos_gastos">Ingresos y Gastos</string>
+    <string name="agenda">Agenda</string>
+    <string name="ajustes_inventario">Ajustes de Inventario</string>
+
+    <string name="administracion">Administración</string>
+    <string name="negocios_sucursales">Negocios y Sucursales</string>
     <string name="administrar_personal">Trabajadores</string>
-    <string name="mi_perfil">Mi perfil</string>
     <string name="reportes">Reportes</string>
     <string name="configuracion">Configuración</string>
-    <string name="agenda">Agenda</string>
+    <string name="configuracion_general">Configuración App</string>
+    <string name="herramientas">Herramientas</string>
+    <string name="rastreo">Ubicación de Personal</string>
+    <string name="ajustes">Ajustes</string>
+
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="recargar">Recargar Operaciones</string>
+    <string name="copia_seguridad">Copia de Seguridad</string>
+    <string name="salir">Salir</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+
+
     <string name="contactar">Contactar</string>
     <string name="tutorial">Tuturial</string>
     <string name="terminos_condiciones">Terminos y Condiciones</string>
-    <string name="copia_seguridad">Copia de Seguridad</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="large_text">
@@ -148,5 +161,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_sucursal_listado">SucursalListadoActivity</string>
+
+
 
 </resources>

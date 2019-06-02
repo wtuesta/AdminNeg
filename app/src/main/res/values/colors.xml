@@ -24,4 +24,8 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorSombra">#909096</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="gen_black">#000</color>
+    <color name="nav_submenubackground">#a0cee5fa</color>
+
 </resources>
