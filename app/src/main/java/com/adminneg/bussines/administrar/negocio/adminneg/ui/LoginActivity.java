@@ -42,9 +42,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
-            setTheme(R.style.darkTheme);
-        }else{setTheme(R.style.AppTheme);}
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
