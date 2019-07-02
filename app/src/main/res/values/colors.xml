@@ -7,8 +7,8 @@
     <color name="textcolor">#808080</color>
     <color name="tintcolor">#000000</color>
     <color name="buttoncolor">#283593</color>
-    <color name="starcolor">#283593</color>
-    <color name="endcolor">#001055</color>
+    <color name="starcolor">#000000</color>
+    <color name="endcolor">#1565C0</color>
 
     <!-- Night Mode theme. -->
     <color name="backgroundcolor_o">#161616</color>
@@ -19,18 +19,22 @@
     <color name="starcolor_o">#1b1b1b</color>
     <color name="endcolor_o">#000000</color>
 
-    <color name="colorPrimary">#283593</color>
-    <color name="colorPrimaryDark">#001055</color>
-    <color name="colorPrimaryLigth">#5f5fc4</color>
-    <color name="colorAccent">#ff5722</color>
 
-    <color name="colorSeconaryDark">#c41c00</color>
-    <color name="colorSeconarylight">#ff8a50</color>
+    <color name="colorPrimary">#4980de</color>
+    <color name="colorPrimaryLigth">#82afff</color>
+    <color name="colorPrimaryDark">#0054ac</color>
+
+    <color name="colorAccent">#ff3d00</color>
+    <color name="colorSeconarylight">#ff7539</color>
+    <color name="colorSeconaryDark">#c30000</color>
+
+
     <color name="colorTerciarioDark">#c43e00</color>
     <color name="colorTerciarioligh">#ff6f00</color>
     <color name="colorCuaternarioDark">#202026</color>
-    <color name="primary_text">#ffffff</color>
-    <color name="secondary_text">#ffebee</color>
+    <color name="primary_text">#000000</color>
+    <color name="secondary_text">#ffffff</color>
+
     <color name="black_overlay">#66000000</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorSombra">#909096</color>

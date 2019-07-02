@@ -1,6 +1,7 @@
 package com.adminneg.bussines.administrar.negocio.adminneg.ui;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,10 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.adminneg.bussines.administrar.negocio.adminneg.R;
+import com.adminneg.bussines.administrar.negocio.adminneg.utilidades.Constantes;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -38,6 +42,7 @@ public class SplashActivity extends AppCompatActivity {
     private static final int UI_ANIMATION_DELAY = 0;
     private final Handler mHideHandler = new Handler();
     private View mContentView;
+    private ImageView imgLogo;
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -101,6 +106,7 @@ public class SplashActivity extends AppCompatActivity {
         mVisible = false;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
+        imgLogo = findViewById(R.id.imgLogo);
 
 
         // Set up the user interaction to manually show or hide the system UI.
@@ -129,6 +135,14 @@ public class SplashActivity extends AppCompatActivity {
                 Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
+
+                /*Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                Pair[] pairs = new Pair[2];
+                pairs[0]= new Pair<View,String>(imgLogo,Constantes.SHARED_VIEW_PHOTO);
+                pairs[1]= new Pair<View,String>(mContentView,Constantes.SHARED_VIEW_TITLE);
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SplashActivity.this, pairs);
+                startActivity(i, options.toBundle());
+                finish();*/
 
             }
         },2000);

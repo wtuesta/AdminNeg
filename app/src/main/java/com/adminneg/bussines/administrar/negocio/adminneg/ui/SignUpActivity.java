@@ -1,46 +1,33 @@
 package com.adminneg.bussines.administrar.negocio.adminneg.ui;
 
-import android.content.Context;
+import android.app.ActivityOptions;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.Patterns;
+import android.util.Pair;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.adminneg.bussines.administrar.negocio.adminneg.R;
-import com.adminneg.bussines.administrar.negocio.adminneg.api.WebService;
-import com.adminneg.bussines.administrar.negocio.adminneg.api.WebServiceApi;
 import com.adminneg.bussines.administrar.negocio.adminneg.model.Adm_01usuario;
-import com.adminneg.bussines.administrar.negocio.adminneg.shared_pref.SharedPrefManager;
-import com.adminneg.bussines.administrar.negocio.adminneg.ui.LoginActivity;
-import com.adminneg.bussines.administrar.negocio.adminneg.ui.MainActivity;
+import com.adminneg.bussines.administrar.negocio.adminneg.utilidades.Constantes;
 import com.adminneg.bussines.administrar.negocio.adminneg.utilidades.Utilidades;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import butterknife.OnClick;
 
 public class SignUpActivity extends AppCompatActivity {
+    @BindView(R.id.imgLogo)
+    ImageView imgLogo;
+    @BindView(R.id.tvTitulo)
+    TextView tvTitulo;
     private Adm_01usuario usuario;
-
-    @BindView(R.id.etName)
-    EditText etName;
-    @BindView(R.id.etEmail)
-    EditText etEmail;
-    @BindView(R.id.etPassword)
-    EditText etPassword;
-    @BindView(R.id.btSignUp)
-    Button btSignUp;
-    @BindView(R.id.tvLogin)
-    TextView tvLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,120 +35,39 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
 
-        btSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                userSignUp();
-            }
-        });
-
-        tvLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-            }
-        });
+        //conexexion de los elementos de animacion
+        ViewCompat.setTransitionName(imgLogo,Constantes.SHARED_VIEW_PHOTO);
+        ViewCompat.setTransitionName(tvTitulo,Constantes.SHARED_VIEW_TITLE);
     }
 
-    private void userSignUp(){
-        String email = etEmail.getText().toString().trim();
-        String name = etName.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
 
-        if(name.isEmpty()){
-            etName.setError(getResources().getString(R.string.name_error));
-            etName.requestFocus();
-            return;
-        }
-
-        if(email.isEmpty()){
-            etEmail.setError(getResources().getString(R.string.email_error));
-            etEmail.requestFocus();
-            return;
-        }
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            etEmail.setError(getResources().getString(R.string.email_doesnt_match));
-            etEmail.requestFocus();
-            return;
-        }
-
-        if(password.isEmpty()){
-            etPassword.setError(getResources().getString(R.string.password_error));
-            etPassword.requestFocus();
-            return;
-        }
-
-        if(password.length()<4){
-            etPassword.setError(getResources().getString(R.string.password_error_less_than));
-            etPassword.requestFocus();
-            return;
-        }
-
-        usuario = new Adm_01usuario();
-        usuario.setNombre(name);
-        usuario.setEmail(email);
-        usuario.setPassword(password);
-        usuario.setTipoUsuario("P"); //Todo el que crea por defecto es propietario
-        usuario.setRol1("1");
-        usuario.setRol2("1");
-        usuario.setRol3("1");
-        usuario.setRol4("1");
-        usuario.setRol5("1");
-        usuario.setCreacionFecha(Utilidades.fechaHoraActual);
-        usuario.setModificacionFecha(Utilidades.fechaHoraActual);
-        crearUsuario();
-    }
-
-    private void crearUsuario(){
-        Call<Void> call = WebService
-                .getInstance()
-                .createService(WebServiceApi.class)
-                .registrarUsuario(usuario)
-                ;
-        call.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if(response.code() == 200){
-                    //Log.d("TAG1", "usuario guardado correctamente");
-                    Toast.makeText(getApplicationContext(),R.string.registro_login_exitoso,Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                }else if(response.code()==409){
-                    Toast.makeText(getApplicationContext(),R.string.email_error_no_update,Toast.LENGTH_SHORT).show();
-                   // Log.d("TAG1", "usuario ya existe");
-                }else{
-                    //Log.d("TAG1", "error no definido");
-                    Toast.makeText(getApplicationContext(),R.string.email_error_no_definido,Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Log.d("TAG1 Error: ", t.getMessage().toString());
-            }
-        });
-    }
-
-    @Override
-    protected void onStart(){
-        super.onStart();
-        SharedPreferences prefe=getSharedPreferences("datos", Context.MODE_PRIVATE);
-        int salir = prefe.getInt("salir",0);
-        if(SharedPrefManager.getInstance(this).isLoggedIn()){
-            Log.d("TAG1", "Profesor ya esta logeado, enviando a Profile Activity");
-            if (salir==0) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-            else
-            {
+    @OnClick({R.id.btAnterior, R.id.btSiguiente})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btAnterior:
                 finish();
-            }
-        }
-        else
-        {
-            if (salir==1) {
-                finish();
-            }
+                break;
+            case R.id.btSiguiente:
+                /*ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
+                Intent i = new Intent(getApplicationContext(), SignUp2Activity.class);
+                startActivity(i, options.toBundle());
+                */
+
+                /*Intent i = new Intent(getApplicationContext(), SignUp2Activity.class);
+                Pair[] pairs = new Pair[1];
+                pairs[0]= new Pair<View,String>(imgLogo,"imageTransition");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pairs);
+                startActivity(i, options.toBundle());
+                */
+
+                Intent i = new Intent(getApplicationContext(), SignUp2Activity.class);
+                Pair[] pairs = new Pair[2];
+                pairs[0]= new Pair<View,String>(imgLogo,Constantes.SHARED_VIEW_PHOTO);
+                pairs[1]= new Pair<View,String>(tvTitulo,Constantes.SHARED_VIEW_TITLE);
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pairs);
+                startActivity(i, options.toBundle());
+
+                break;
         }
     }
 }

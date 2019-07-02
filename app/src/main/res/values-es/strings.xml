@@ -24,7 +24,7 @@
     <string name="name_error">Error de nombre</string>
     <string name="name_error_no_update">Error de actualizacion de nombre</string>
     <string name="email_error">Error en formato de correo </string>
-    <string name="email_doesnt_match">Password no es igual</string>
+    <string name="email_doesnt_match">Error en formato de mail</string>
     <string name="email_error_no_update">El Correo ya esta siendo usado, no es posible crear usuario.</string>
     <string name="password_error">Error en password</string>
     <string name="password_error_less_than">Password debe ser mayor de 4 caracteres</string>
@@ -160,4 +160,9 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="pais">País</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="anterior">Anterior</string>
+    <string name="sign_up1">Registro 1 de 2</string>
+    <string name="sign_up2">Registro 2 de 2</string>
 </resources>

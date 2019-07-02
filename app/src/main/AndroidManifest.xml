@@ -34,12 +34,12 @@
             android:name=".ui.SucursalListadoActivity"
             android:label="@string/title_activity_sucursal_listado"
             android:parentActivityName=".ui.MainActivity"
-
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.adminneg.bussines.administrar.negocio.adminneg.ui.MainActivity" />
         </activity>
+        <activity android:name=".ui.SignUp2Activity"></activity>
     </application>
 
 </manifest>

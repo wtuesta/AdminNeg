@@ -17,6 +17,6 @@
         <attr name="buttoncolor" format="color" />
         <attr name="startcolor" format="color" />
         <attr name="endcolor" format="color" />
-
+        <attr name="colornegro" format="color" />
     </declare-styleable>
 </resources>

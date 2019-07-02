@@ -13,6 +13,17 @@
         <item name="buttoncolor">@color/colorPrimary</item>
         <item name="startcolor">@color/starcolor</item>
         <item name="endcolor">@color/endcolor</item>
+        <item name="colornegro">@color/colorBlack</item>
+        <!-- Permitir Transiciones entre activities. -->
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- Definicion de efectos de entrada y salida entre activities. -->
+
+        <!--
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
+        -->
+        <item name="android:windowSharedElementEnterTransition">@transition/titulo_transition</item>
+        <item name="android:windowSharedElementExitTransition">@transition/titulo_transition</item>
     </style>
 
     <!-- Night Mode theme. -->
@@ -25,6 +36,7 @@
         <item name="textcolor">@color/textcolor_o</item>
         <item name="startcolor">@color/starcolor_o</item>
         <item name="endcolor">@color/endcolor_o</item>
+        <item name="colornegro">@color/colorBlack</item>
     </style>
 
 
@@ -54,7 +66,12 @@
         <item name="android:background">@drawable/gradient_bt</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
-
+    <style name="MiBotonFlat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/gradient_bt_flat</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
     <style name="MiTextoBlanco">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

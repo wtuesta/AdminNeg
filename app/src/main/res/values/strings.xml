@@ -161,7 +161,11 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_sucursal_listado">SucursalListadoActivity</string>
-
+    <string name="pais">Country</string>
+    <string name="siguiente">Next</string>
+    <string name="anterior">Anterior</string>
+    <string name="sign_up1">Registro 1 de 2</string>
+    <string name="sign_up2">Registro 2 de 2</string>
 
 
 </resources>
